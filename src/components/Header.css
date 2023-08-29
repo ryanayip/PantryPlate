@@ -8,6 +8,7 @@
   font-size: 0.9em;
 }
 
+/* CSS for the darkmode toggle switch */
 .switch {
   position: relative;
   display: inline-block;

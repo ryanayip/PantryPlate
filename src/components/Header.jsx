@@ -3,7 +3,7 @@ import "./Header.css";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <>
       <Navbar>
@@ -14,7 +14,7 @@ const Header = () => {
           </div>
         </Container>
         <label class="switch">
-          <input type="checkbox" id="modeToggle" />
+          <input type="checkbox" id="modeToggle" onClick={props.theme} />
           <span class="slider round"></span>
         </label>
       </Navbar>
