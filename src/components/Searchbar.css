@@ -88,12 +88,17 @@
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap; /* Wrap ingredients to the next line if needed */
+  background-color: rgba(50, 50, 50, 0.7); /* Dark, transparent gray */
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
 
 .selected-ingredient {
   margin: 5px;
   padding: 5px 10px;
   border-radius: 15px;
-  background-color: #eee; /* Light grey background */
+  background-color: white; /* Light grey background */
   font-size: 16px;
+  color: black;
 }

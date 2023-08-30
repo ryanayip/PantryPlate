@@ -85,11 +85,8 @@ const Searchbar = () => {
           ))}
         </div>
 
-        {/* Button to search using the selected ingredients */}
         {selectedIngredients.length > 0 && (
-          <Button onClick={searchWithSelectedIngredients}>
-            Search with selected ingredients
-          </Button>
+          <Button onClick={searchWithSelectedIngredients}>Find Recipes</Button>
         )}
       </div>
     </div>
