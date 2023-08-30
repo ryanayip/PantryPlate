@@ -4,6 +4,7 @@ import bgimg from "../images/bgimage.jpg";
 import axios from "axios";
 const apiKey = "d830444678ec4629854c2b21debbe72a";
 import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
 
 const Searchbar = () => {
   const [query, setQuery] = useState("");
@@ -56,50 +57,54 @@ const Searchbar = () => {
   };
 
   return (
-    <div className="image-cont" style={{ backgroundImage: `url(${bgimg})` }}>
-      <div className="search-container">
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search for an ingredient..."
-          className="search-input"
-        />
-        {suggestions.length > 0 && (
-          <div className="suggestions-list">
-            {suggestions.map((suggestion) => (
-              <div
-                key={suggestion}
-                className="suggestion-item"
-                onClick={() => handleSuggestionClick(suggestion)}
+    <>
+      <div className="image-cont" style={{ backgroundImage: `url(${bgimg})` }}>
+        <div className="search-container">
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search for an ingredient..."
+            className="search-input"
+          />
+          {suggestions.length > 0 && (
+            <div className="suggestions-list">
+              {suggestions.map((suggestion) => (
+                <div
+                  key={suggestion}
+                  className="suggestion-item"
+                  onClick={() => handleSuggestionClick(suggestion)}
+                >
+                  {suggestion}
+                </div>
+              ))}
+            </div>
+          )}
+          <div className="selected-ingredients-list">
+            {selectedIngredients.map((ingredient, index) => (
+              <span
+                key={index}
+                className="selected-ingredient"
+                onClick={() => handleDeleteIngredient(ingredient)}
               >
-                {suggestion}
-              </div>
+                {ingredient}
+              </span>
             ))}
           </div>
-        )}
-        <div className="selected-ingredients-list">
-          {selectedIngredients.map((ingredient, index) => (
-            <span
-              key={index}
-              className="selected-ingredient"
-              onClick={() => handleDeleteIngredient(ingredient)}
-            >
-              {ingredient}
-            </span>
-          ))}
-        </div>
 
-        {selectedIngredients.length > 0 && (
-          <Button
-            className="search-btn"
-            onClick={searchWithSelectedIngredients}
-          >
-            Find Recipes
-          </Button>
-        )}
+          {selectedIngredients.length > 0 && (
+            <Button
+              className="search-btn"
+              onClick={searchWithSelectedIngredients}
+            >
+              Find Recipes
+            </Button>
+          )}
+        </div>
       </div>
-    </div>
+      {/* Recipe Cards */}
+      <Container></Container>
+    </>
   );
 };
 
