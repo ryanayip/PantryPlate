@@ -1,11 +1,12 @@
 #logo-font {
   font-family: "Titan One", "Courier New", Courier, monospace;
-  color: rgb(238, 159, 12);
+  color: orangered;
   font-size: 2em;
 }
 
 .slogan-text {
   font-size: 0.9em;
+  text-align: center;
 }
 
 /* CSS for the darkmode toggle switch */

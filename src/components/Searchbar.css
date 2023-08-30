@@ -1,0 +1,16 @@
+.image-cont {
+  height: 40vh; /* One third of the screen's height */
+  width: 100%; /* Full width */
+  background-size: cover; /* Make the image cover the entire div */
+  background-position: center center; /* Center the image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .image-cont {
+    /* Adjust styles as required for mobile. Example: */
+    height: 30vh; /* Make it occupy half the screen on mobile for emphasis */
+  }
+}
