@@ -57,3 +57,10 @@ input:checked + .slider:before {
   transform: translateX(26px);
   content: "🌜";
 }
+
+@media (max-width: 768px) {
+  input:checked + .slider:before {
+    transform: translateX(10px);
+    content: "🌜";
+  }
+}
