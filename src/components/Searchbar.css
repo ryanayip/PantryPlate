@@ -14,3 +14,72 @@
     height: 30vh; /* Make it occupy half the screen on mobile for emphasis */
   }
 }
+
+.search-container {
+  position: relative;
+  width: 80%; /* 80% of its container's width */
+  max-width: 50rem; /* Cap the maximum width */
+  margin: 0 auto; /* Center it horizontally */
+}
+
+.search-input {
+  width: 100%; /* Take full width of its container */
+  padding: 15px;
+  font-size: 20px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  outline: none;
+  transition: border-color 0.3s, width 0.3s;
+}
+
+.search-input:focus {
+  border-color: #555; /* Darker border when focused */
+}
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .search-input {
+    width: 95%; /* Make it a bit narrower than its container on mobile */
+    padding: 10px;
+    font-size: 16px; /* Smaller font size */
+  }
+}
+.suggestions-list {
+  position: absolute;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 15px 15px; /* Rounded bottom corners */
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow */
+  margin-top: -1px; /* Makes it appear attached */
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s; /* Smoother transition on hover */
+}
+
+.suggestion-item:hover {
+  background-color: #f7f7f7;
+}
+
+/* Styling the scrollbar */
+.suggestions-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.suggestions-list::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.suggestions-list::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+.suggestions-list::-webkit-scrollbar-track {
+  background: transparent;
+}
