@@ -2,7 +2,6 @@ import React from "react";
 import "./Header.css";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
-import star from "../images/star.png";
 import Favorites from "./Favorites";
 
 const Header = (props) => {
