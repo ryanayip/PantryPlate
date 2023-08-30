@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./Searchbar.css";
 import bgimg from "../images/bgimage.jpg";
 import axios from "axios";
-const apiKey = "d830444678ec4629854c2b21debbe72a";
+// const apiKey = "d830444678ec4629854c2b21debbe72a";
+const apiKey = "9fa0f5862ce941109899150f765ce956";
+
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import RecipeCard from "./RecipeCard";
@@ -12,6 +14,9 @@ const Searchbar = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [cardData, setCardData] = useState([]);
+  const recipeCardData = cardData.map((cardData) => {
+    return <RecipeCard key={cardData.id} cardData={cardData} />;
+  });
 
   useEffect(() => {
     if (query) {
@@ -108,7 +113,15 @@ const Searchbar = () => {
       </div>
       {/* Recipe Cards */}
       <Container className="mt-5">
-        <RecipeCard cardData={cardData} />
+        {recipeCardData.length > 0 ? (
+          <div className="d-flex flex-wrap justify-content-center gap-4">
+            {recipeCardData}
+          </div>
+        ) : (
+          <div className="d-flex justify-content-center text-center">
+            <h4>Enter your ingredients and see what you can make!</h4>
+          </div>
+        )}
       </Container>
     </>
   );

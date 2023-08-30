@@ -6,19 +6,16 @@ import star from "../images/star.png";
 import Image from "react-bootstrap/Image";
 
 const RecipeCard = (props) => {
-  console.log(props.cardData[0]);
+  console.log(props.cardData);
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img
-        variant="top"
-        src="https://spoonacular.com/recipeImages/660261-312x231.jpg"
-      />
+    <Card style={{ width: "15rem" }}>
+      <Card.Img variant="top" src={props.cardData.image} />
       <Card.Body>
-        <Card.Title>{props.cardData[0].title}</Card.Title>
+        <Card.Title>{props.cardData.title}</Card.Title>
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroup.Item style={{ fontSize: "0.9rem" }}>
-          You're missing {props.cardData[0].missedIngredientCount} ingredients
+          You're missing {props.cardData.missedIngredientCount} ingredients
         </ListGroup.Item>
       </ListGroup>
       <Card.Body
