@@ -23,7 +23,7 @@ function Favorites() {
 
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Favorites</Offcanvas.Title>
+          <Offcanvas.Title> Your Favorites</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           Some text as placeholder. In real life you can have the elements you
