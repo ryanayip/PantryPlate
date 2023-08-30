@@ -49,10 +49,12 @@ const Searchbar = () => {
     setSuggestions([]);
   };
 
-  const handleInputChange = (e) => {
-    e.preventDefault(); // Prevents the page from refreshing on 'Enter' key press
-    setQuery(e.target.value);
+  const handleDeleteIngredient = (ingredientToRemove) => {
+    setSelectedIngredients((prevIngredients) =>
+      prevIngredients.filter((ingredient) => ingredient !== ingredientToRemove)
+    );
   };
+
   return (
     <div className="image-cont" style={{ backgroundImage: `url(${bgimg})` }}>
       <div className="search-container">
@@ -78,7 +80,11 @@ const Searchbar = () => {
         )}
         <div className="selected-ingredients-list">
           {selectedIngredients.map((ingredient, index) => (
-            <span key={index} className="selected-ingredient">
+            <span
+              key={index}
+              className="selected-ingredient"
+              onClick={() => handleDeleteIngredient(ingredient)}
+            >
               {ingredient}
             </span>
           ))}
