@@ -1,8 +1,8 @@
 .image-cont {
-  height: 40vh; /* One third of the screen's height */
-  width: 100%; /* Full width */
-  background-size: cover; /* Make the image cover the entire div */
-  background-position: center center; /* Center the image */
+  height: 40vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,20 +10,22 @@
 
 @media (max-width: 768px) {
   .image-cont {
-    /* Adjust styles as required for mobile. Example: */
-    height: 30vh; /* Make it occupy half the screen on mobile for emphasis */
+    height: 35vh;
   }
 }
 
 .search-container {
   position: relative;
-  width: 80%; /* 80% of its container's width */
-  max-width: 50rem; /* Cap the maximum width */
-  margin: 0 auto; /* Center it horizontally */
+  width: 80%;
+  max-width: 50rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search-input {
-  width: 100%; /* Take full width of its container */
+  width: 100%;
   padding: 15px;
   font-size: 20px;
   border: 1px solid #ddd;
@@ -33,14 +35,14 @@
 }
 
 .search-input:focus {
-  border-color: #555; /* Darker border when focused */
+  border-color: #555;
 }
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
   .search-input {
-    width: 95%; /* Make it a bit narrower than its container on mobile */
+    width: 95%;
     padding: 10px;
-    font-size: 16px; /* Smaller font size */
+    font-size: 16px;
   }
 }
 .suggestions-list {
@@ -48,18 +50,19 @@
   width: 100%;
   border: 1px solid #ddd;
   border-top: none;
-  border-radius: 0 0 15px 15px; /* Rounded bottom corners */
+  border-radius: 15px;
   max-height: 150px;
   overflow-y: auto;
   background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow */
-  margin-top: -1px; /* Makes it appear attached */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 3.8rem; /* Makes it appear attached */
+  color: black;
 }
 
 .suggestion-item {
   padding: 10px;
   cursor: pointer;
-  transition: background-color 0.2s; /* Smoother transition on hover */
+  transition: background-color 0.2s;
 }
 
 .suggestion-item:hover {
@@ -85,9 +88,10 @@
 }
 
 .selected-ingredients-list {
+  width: 100%;
   margin-top: 20px;
   display: flex;
-  flex-wrap: wrap; /* Wrap ingredients to the next line if needed */
+  flex-wrap: wrap;
   background-color: rgba(50, 50, 50, 0.7); /* Dark, transparent gray */
   padding: 10px;
   border-radius: 8px;
@@ -101,4 +105,9 @@
   background-color: white; /* Light grey background */
   font-size: 16px;
   color: black;
+}
+
+.search-btn {
+  background-color: orangered;
+  border: none;
 }

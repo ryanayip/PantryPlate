@@ -20,7 +20,6 @@ const Searchbar = () => {
             (ingredient) => ingredient.name
           );
           setSuggestions(ingredients);
-          console.log(response.data.map((ingredient) => ingredient.name));
         })
         .catch((error) => {
           console.error("Error fetching suggestions:", error);
@@ -31,7 +30,7 @@ const Searchbar = () => {
   }, [query]);
 
   const searchWithSelectedIngredients = () => {
-    const ingredientsString = selectedIngredients.join(","); // Convert the array to a comma-separated string
+    const ingredientsString = selectedIngredients.join(",");
     axios
       .get(
         `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsString}&apiKey=${apiKey}`
@@ -46,8 +45,8 @@ const Searchbar = () => {
 
   const handleSuggestionClick = (ingredient) => {
     setSelectedIngredients([...selectedIngredients, ingredient]);
-    setQuery(""); // Clear the search input
-    setSuggestions([]); // Clear suggestions
+    setQuery("");
+    setSuggestions([]);
   };
 
   const handleInputChange = (e) => {
@@ -86,7 +85,12 @@ const Searchbar = () => {
         </div>
 
         {selectedIngredients.length > 0 && (
-          <Button onClick={searchWithSelectedIngredients}>Find Recipes</Button>
+          <Button
+            className="search-btn"
+            onClick={searchWithSelectedIngredients}
+          >
+            Find Recipes
+          </Button>
         )}
       </div>
     </div>
