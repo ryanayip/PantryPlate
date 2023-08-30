@@ -83,3 +83,17 @@
 .suggestions-list::-webkit-scrollbar-track {
   background: transparent;
 }
+
+.selected-ingredients-list {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap; /* Wrap ingredients to the next line if needed */
+}
+
+.selected-ingredient {
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: #eee; /* Light grey background */
+  font-size: 16px;
+}

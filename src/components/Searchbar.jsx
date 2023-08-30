@@ -3,6 +3,7 @@ import "./Searchbar.css";
 import bgimg from "../images/bgimage.jpg";
 import axios from "axios";
 const apiKey = "d830444678ec4629854c2b21debbe72a";
+import Button from "react-bootstrap/Button";
 
 const Searchbar = () => {
   const [query, setQuery] = useState("");
@@ -29,10 +30,29 @@ const Searchbar = () => {
     }
   }, [query]);
 
+  const searchWithSelectedIngredients = () => {
+    const ingredientsString = selectedIngredients.join(","); // Convert the array to a comma-separated string
+    axios
+      .get(
+        `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsString}&apiKey=${apiKey}`
+      )
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching recipes based on ingredients:", error);
+      });
+  };
+
   const handleSuggestionClick = (ingredient) => {
     setSelectedIngredients([...selectedIngredients, ingredient]);
     setQuery(""); // Clear the search input
     setSuggestions([]); // Clear suggestions
+  };
+
+  const handleInputChange = (e) => {
+    e.preventDefault(); // Prevents the page from refreshing on 'Enter' key press
+    setQuery(e.target.value);
   };
   return (
     <div className="image-cont" style={{ backgroundImage: `url(${bgimg})` }}>
@@ -56,6 +76,20 @@ const Searchbar = () => {
               </div>
             ))}
           </div>
+        )}
+        <div className="selected-ingredients-list">
+          {selectedIngredients.map((ingredient, index) => (
+            <span key={index} className="selected-ingredient">
+              {ingredient}
+            </span>
+          ))}
+        </div>
+
+        {/* Button to search using the selected ingredients */}
+        {selectedIngredients.length > 0 && (
+          <Button onClick={searchWithSelectedIngredients}>
+            Search with selected ingredients
+          </Button>
         )}
       </div>
     </div>
