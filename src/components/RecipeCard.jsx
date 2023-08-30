@@ -5,7 +5,8 @@ import ListGroup from "react-bootstrap/ListGroup";
 import star from "../images/star.png";
 import Image from "react-bootstrap/Image";
 
-const RecipeCard = () => {
+const RecipeCard = (props) => {
+  console.log(props.cardData[0]);
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Img
@@ -13,11 +14,11 @@ const RecipeCard = () => {
         src="https://spoonacular.com/recipeImages/660261-312x231.jpg"
       />
       <Card.Body>
-        <Card.Title>Apple Sauce</Card.Title>
+        <Card.Title>{props.cardData[0].title}</Card.Title>
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroup.Item style={{ fontSize: "0.9rem" }}>
-          You're missing 3 ingredients
+          You're missing {props.cardData[0].missedIngredientCount} ingredients
         </ListGroup.Item>
       </ListGroup>
       <Card.Body

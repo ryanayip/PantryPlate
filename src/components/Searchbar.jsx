@@ -5,11 +5,14 @@ import axios from "axios";
 const apiKey = "d830444678ec4629854c2b21debbe72a";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import RecipeCard from "./RecipeCard";
 
 const Searchbar = () => {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [selectedIngredients, setSelectedIngredients] = useState([]);
+  const [cardData, setCardData] = useState([]);
+
   useEffect(() => {
     if (query) {
       axios
@@ -38,6 +41,7 @@ const Searchbar = () => {
       )
       .then((response) => {
         console.log(response.data);
+        setCardData(response.data);
       })
       .catch((error) => {
         console.error("Error fetching recipes based on ingredients:", error);
@@ -103,7 +107,9 @@ const Searchbar = () => {
         </div>
       </div>
       {/* Recipe Cards */}
-      <Container></Container>
+      <Container className="mt-5">
+        <RecipeCard cardData={cardData} />
+      </Container>
     </>
   );
 };

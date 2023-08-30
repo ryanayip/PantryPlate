@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Header from "./components/Header";
 import Searchbar from "./components/Searchbar";
-import RecipeCard from "./components/RecipeCard";
 
 function App() {
   //Light & Dark Mode Toggle
@@ -20,7 +19,6 @@ function App() {
         <Header theme={toggleTheme} />
       </Container>
       <Searchbar />
-      <RecipeCard />
     </>
   );
 }
