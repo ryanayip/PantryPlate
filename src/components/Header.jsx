@@ -15,9 +15,9 @@ const Header = (props) => {
             Craft dishes from what's already in your kitchen
           </div>
         </Container>
-        <label class="switch">
+        <label className="switch">
           <input type="checkbox" id="modeToggle" onClick={props.theme} />
-          <span class="slider round"></span>
+          <span className="slider round"></span>
         </label>
       </Navbar>
     </>

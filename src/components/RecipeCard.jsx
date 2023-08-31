@@ -8,7 +8,7 @@ import Image from "react-bootstrap/Image";
 const RecipeCard = (props) => {
   console.log(props.cardData);
   return (
-    <Card style={{ width: "15rem" }}>
+    <Card className="main-card" style={{ width: "15rem" }}>
       <Card.Img variant="top" src={props.cardData.image} />
       <Card.Body>
         <Card.Title>{props.cardData.title}</Card.Title>
