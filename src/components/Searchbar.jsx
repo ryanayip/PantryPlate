@@ -46,9 +46,19 @@ const Searchbar = () => {
       .get(
         `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsString}&apiKey=${apiKey}`
       )
-      .then((response) => {
-        console.log(response.data);
-        setCardData(response.data);
+      .then(async (response) => {
+        const dataWithSourceUrl = await Promise.all(
+          response.data.map(async (recipe) => {
+            const detailResponse = await axios.get(
+              `https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${apiKey}`
+            );
+            return {
+              ...recipe,
+              sourceUrl: detailResponse.data.sourceUrl,
+            };
+          })
+        );
+        setCardData(dataWithSourceUrl);
       })
       .catch((error) => {
         console.error("Error fetching recipes based on ingredients:", error);

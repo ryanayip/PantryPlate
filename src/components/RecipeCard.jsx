@@ -27,7 +27,7 @@ const RecipeCard = (props) => {
           <Image src={star} width="28" height="28" fluid />
         </Card.Link>
         <Card.Link
-          href="http://www.google.com"
+          href={props.cardData.sourceUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
