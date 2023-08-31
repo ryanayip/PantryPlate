@@ -15,7 +15,6 @@ const Searchbar = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [cardData, setCardData] = useState([]);
-  const [cardLink, setCardLink] = useState([]);
 
   const recipeCardData = cardData.map((cardData) => {
     return <RecipeCard key={cardData.id} cardData={cardData} />;
