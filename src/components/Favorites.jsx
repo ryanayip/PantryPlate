@@ -3,6 +3,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import Navbar from "react-bootstrap/Navbar";
 import star from "../images/star.png";
 import RecipeCard from "./RecipeCard";
+import Button from "react-bootstrap/Button";
 
 export const FAVORITES_KEY = "favorites_recipes";
 
@@ -17,12 +18,6 @@ export const addFavorite = (recipe) => {
   localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
 };
 
-export const removeFavorite = (recipeId) => {
-  const favorites = getFavorites();
-  const updatedFavorites = favorites.filter((recipe) => recipe.id !== recipeId);
-  localStorage.setItem(FAVORITES_KEY, JSON.stringify(updatedFavorites));
-};
-
 function Favorites() {
   const [favorites, setFavorites] = useState(getFavorites());
   const [show, setShow] = useState(false);
@@ -32,6 +27,11 @@ function Favorites() {
   useEffect(() => {
     setFavorites(getFavorites());
   }, [show]);
+
+  const clearFavorites = () => {
+    localStorage.clear();
+    setFavorites([]);
+  };
 
   return (
     <>
@@ -48,11 +48,11 @@ function Favorites() {
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Your Favorites</Offcanvas.Title>
+          <Button variant="danger" onClick={clearFavorites}>
+            Clear
+          </Button>
         </Offcanvas.Header>
-        <Offcanvas.Body
-          onClick={() => removeFavorite(e)}
-          className="d-flex flex-column align-items-center gap-3"
-        >
+        <Offcanvas.Body className="d-flex flex-column align-items-center gap-3">
           {favorites.length ? (
             favorites.map((favorites) => {
               return <RecipeCard key={favorites.id} cardData={favorites} />;
