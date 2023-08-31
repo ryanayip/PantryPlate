@@ -30,7 +30,7 @@ const RecipeCard = (props) => {
         }}
       >
         <Card.Link onClick={addToFavorites}>
-          <Image src={star} width="28" height="28" fluid />
+          <Image src={star} width="28" height="28" fluid className="star" />
         </Card.Link>
         <Card.Link
           href={props.cardData.sourceUrl}

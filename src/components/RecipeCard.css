@@ -1,3 +1,11 @@
 .main-card {
   box-shadow: 0cm 0cm 0.5cm rgba(0, 0, 0, 0.2);
 }
+
+.main-card .star:hover {
+  cursor: pointer;
+}
+
+.star-active {
+  filter: brightness(70%);
+}
