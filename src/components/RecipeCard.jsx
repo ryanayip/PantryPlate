@@ -26,7 +26,13 @@ const RecipeCard = (props) => {
         <Card.Link href="#">
           <Image src={star} width="28" height="28" fluid />
         </Card.Link>
-        <Card.Link href="#">Full Recipe</Card.Link>
+        <Card.Link
+          href="http://www.google.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Full Recipe
+        </Card.Link>
       </Card.Body>
     </Card>
   );

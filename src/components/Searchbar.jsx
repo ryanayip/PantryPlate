@@ -14,6 +14,8 @@ const Searchbar = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [cardData, setCardData] = useState([]);
+  const [cardLink, setCardLink] = useState([]);
+
   const recipeCardData = cardData.map((cardData) => {
     return <RecipeCard key={cardData.id} cardData={cardData} />;
   });
@@ -112,7 +114,7 @@ const Searchbar = () => {
         </div>
       </div>
       {/* Recipe Cards */}
-      <Container className="mt-5">
+      <Container className="my-5">
         {recipeCardData.length > 0 ? (
           <div className="d-flex flex-wrap justify-content-center gap-4">
             {recipeCardData}
