@@ -4,9 +4,15 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import star from "../images/star.png";
 import Image from "react-bootstrap/Image";
+import { addFavorite } from "./Favorites";
 
 const RecipeCard = (props) => {
   console.log(props.cardData);
+
+  const addToFavorites = () => {
+    addFavorite(props.cardData);
+  };
+
   return (
     <Card className="main-card" style={{ width: "15rem" }}>
       <Card.Img variant="top" src={props.cardData.image} />
@@ -23,7 +29,7 @@ const RecipeCard = (props) => {
           fontSize: "0.9rem",
         }}
       >
-        <Card.Link href="#">
+        <Card.Link onClick={addToFavorites}>
           <Image src={star} width="28" height="28" fluid />
         </Card.Link>
         <Card.Link
